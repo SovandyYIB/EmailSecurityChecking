@@ -1,0 +1,54 @@
+BoxLayout:
+    orientation: 'vertical'
+    padding: 10
+    spacing: 10
+
+    canvas.before:
+        Rectangle:
+            source: 'images/wallhaven-zmmjpg.jpg'  # Background image
+            size: self.size
+            pos: self.pos
+
+    Label:
+        text: "Email Security Checker"
+        font_size: '30sp'
+        font_name: 'fonts/RobotoSlab-SemiBold.ttf'
+        size_hint_y: None
+        height: 50
+        color: 1, 1, 1, 1  # White text
+
+    TextInput:
+        id: input_text
+        hint_text: "Enter Email Address"
+        multiline: False
+        font_name: 'fonts/RobotoSlab-SemiBold.ttf'
+        font_size: '16sp'
+        size_hint_y: None
+        height: 50
+        background_color: (1, 1, 1, 0.5)  # Transparent background
+        foreground_color: (0, 0, 0, 1)  # Black text
+
+    Button:
+        text: "Security Check"
+        on_press: app.check_security(input_text.text)
+        font_name: 'fonts/RobotoSlab-SemiBold.ttf'
+        font_size: '16sp'
+        size_hint_y: None
+        height: 50
+        background_color: (0.2, 0.6, 0.8, 1)  # Custom button color
+        color: 1, 1, 1, 1  # White text
+
+    ScrollView:
+        size_hint: (1, None)
+        height: 300
+        bar_width: 10
+        Label:
+            id: result
+            text: "Results will appear here"
+            markup: True  # Enable rich text for colored and bold text
+            text_size: self.width, None
+            size_hint_y: None
+            height: self.texture_size[1]
+            font_name: 'fonts/RobotoSlab-SemiBold.ttf'
+            font_size: '14sp'
+            color: 1, 1, 1, 1  # White text
